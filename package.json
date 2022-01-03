@@ -19,6 +19,7 @@
     "eslint-config-oclif-typescript": "^1.0.2",
     "globby": "^11",
     "oclif": "^2.0.0-main.10",
+    "prettier": "^2.5.1",
     "shx": "^0.3.3",
     "ts-node": "^10.2.1",
     "tslib": "^2.3.1",
@@ -62,7 +63,8 @@
     "posttest": "yarn lint",
     "prepack": "yarn build && oclif manifest && oclif readme",
     "test": "mocha --forbid-only \"test/**/*.test.ts\"",
-    "version": "oclif readme && git add README.md"
+    "version": "oclif readme && git add README.md",
+    "prettier": "prettier --write src/**/*.ts"
   },
   "types": "dist/index.d.ts"
 }
