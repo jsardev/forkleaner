@@ -3,10 +3,34 @@
   "description": "GitHub fork cleaner",
   "version": "0.0.0",
   "author": "Jakub Sarnowski",
+  "homepage": "https://github.com/sarneeh/forkleaner",
+  "bugs": "https://github.com/sarneeh/forkleaner/issues",
+  "repository": "sarneeh/forkleaner",
+  "license": "MIT",
+  "keywords": [
+    "oclif"
+  ],
   "bin": {
     "forkleaner": "./bin/run"
   },
-  "bugs": "https://github.com/sarneeh/forkleaner/issues",
+  "dirname": "forkleaner",
+  "engines": {
+    "node": ">=12.0.0"
+  },
+  "files": [
+    "/bin",
+    "/dist"
+  ],
+  "scripts": {
+    "build": "shx rm -rf dist && tsc -b",
+    "lint": "eslint . --ext .ts --config .eslintrc",
+    "postpack": "shx rm -f oclif.manifest.json",
+    "posttest": "yarn lint",
+    "prepack": "yarn build && oclif manifest && oclif readme",
+    "test": "mocha --forbid-only \"test/**/*.test.ts\"",
+    "version": "oclif readme && git add README.md",
+    "prettier": "prettier --write src/**/*.ts"
+  },
   "dependencies": {
     "@oclif/core": "^1",
     "@oclif/plugin-help": "^5",
@@ -19,47 +43,17 @@
     "@typescript-eslint/eslint-plugin": "^5.8.1",
     "@typescript-eslint/parser": "^5.8.1",
     "eslint": "^7.32.0",
-    "globby": "^11",
     "oclif": "^2.0.0-main.10",
     "prettier": "^2.5.1",
     "shx": "^0.3.3",
     "ts-node": "^10.2.1",
-    "tslib": "^2.3.1",
     "typescript": "^4.4.3"
   },
-  "dirname": "oex",
-  "engines": {
-    "node": ">=12.0.0"
-  },
-  "files": [
-    "/bin",
-    "/dist",
-    "/npm-shrinkwrap.json",
-    "/oclif.manifest.json"
-  ],
-  "homepage": "https://github.com/sarneeh/forkleaner",
-  "keywords": [
-    "oclif"
-  ],
-  "license": "MIT",
-  "main": "dist/index.js",
   "oclif": {
     "bin": "forkleaner",
     "commands": "./dist/commands",
     "plugins": [
       "@oclif/plugin-help"
     ]
-  },
-  "repository": "sarneeh/forkleaner",
-  "scripts": {
-    "build": "shx rm -rf dist && tsc -b",
-    "lint": "eslint . --ext .ts --config .eslintrc",
-    "postpack": "shx rm -f oclif.manifest.json",
-    "posttest": "yarn lint",
-    "prepack": "yarn build && oclif manifest && oclif readme",
-    "test": "mocha --forbid-only \"test/**/*.test.ts\"",
-    "version": "oclif readme && git add README.md",
-    "prettier": "prettier --write src/**/*.ts"
-  },
-  "types": "dist/index.d.ts"
+  }
 }
