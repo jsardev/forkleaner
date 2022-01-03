@@ -10,9 +10,11 @@
   "dependencies": {
     "@oclif/core": "^1",
     "@oclif/plugin-help": "^5",
-    "@oclif/plugin-plugins": "^2.0.1"
+    "@octokit/rest": "^18.12.0",
+    "listr": "^0.14.3"
   },
   "devDependencies": {
+    "@types/listr": "^0.14.4",
     "@types/node": "^16.9.4",
     "eslint": "^7.32.0",
     "eslint-config-oclif": "^4",
@@ -45,15 +47,8 @@
     "bin": "forkleaner",
     "commands": "./dist/commands",
     "plugins": [
-      "@oclif/plugin-help",
-      "@oclif/plugin-plugins"
-    ],
-    "topicSeparator": " ",
-    "topics": {
-      "hello": {
-        "description": "Say hello to the world and others"
-      }
-    }
+      "@oclif/plugin-help"
+    ]
   },
   "repository": "sarneeh/forkleaner",
   "scripts": {
