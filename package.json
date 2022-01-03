@@ -16,9 +16,9 @@
   "devDependencies": {
     "@types/listr": "^0.14.4",
     "@types/node": "^16.9.4",
+    "@typescript-eslint/eslint-plugin": "^5.8.1",
+    "@typescript-eslint/parser": "^5.8.1",
     "eslint": "^7.32.0",
-    "eslint-config-oclif": "^4",
-    "eslint-config-oclif-typescript": "^1.0.2",
     "globby": "^11",
     "oclif": "^2.0.0-main.10",
     "prettier": "^2.5.1",
